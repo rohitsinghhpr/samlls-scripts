@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render Images</title>
+    <style>
+        #app img {
+            display: block;
+            width: 90%;
+            max-width: 90%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+
+    <script>
+
+        const imageSet = ""; // Add your image URLs here, separated by commas
+
+        function renderImagesOneByOne(imageSet) {
+            const app = document.getElementById("app");
+
+            if (!app) {
+                console.error("Element with id 'app' not found");
+                return;
+            }
+
+            app.innerHTML = ""; // clear previous content
+
+            imageSet.forEach(url => {
+                const img = document.createElement("img");
+                img.src = url;
+                img.style.width = "200px";
+                img.style.margin = "10px";
+                img.style.borderRadius = "8px";
+                img.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
+                img.loading = "lazy";
+
+                app.appendChild(img);
+            });
+        }
+
+        // Call it
+        renderImagesOneByOne(imageSet);
+    </script>
+
+</body>
+
+</html>
